@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title> Gráfico de Barras </title>
+<!-- Inclusões das bibliotecas JavaScript para o Highcharts -->
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/data.js"></script>
+</head>
+<body>oi
+	<script language="JavaScript">
+                    $(document).ready(function() {
+            
+            $.get('data1.csv', function(csv) {
+                $('#container').highcharts({
+                    chart: {
+                        type: 'column'
+                    },
+                    data: {
+                        csv: csv
+                    },
+                    title: {
+                        text: 'Number of Oscars per genre(2007-2011)'
+                        
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Number of Oscars'
+                        }
+                    }
+                });
+            });
+            
+		$.get('data2.csv', function(csv) {
+                $('#container2').highcharts({
+                    chart: {
+                        type: 'line'
+                    },
+                    data: {
+                        csv: csv
+                    },
+                    title: {
+                        text: 'Number of Oscars of the five leading studios(2007-2011) '
+                        
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Number of Oscars'
+                        }
+                    }
+                });
+            });
+        });
+        </script>
+<div id="container" style="width: 800px; height: 400px; margin: 0 auto"></div>
+<div id="container2" style="width: 800px; height: 400px; margin: 0 auto"></div>
+</body>
+</html>
