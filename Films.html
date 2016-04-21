@@ -2,13 +2,17 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title> Gráfico de Barras </title>
+<title> Atividade 2 - Gráficos </title>
 <!-- Inclusões das bibliotecas JavaScript para o Highcharts -->
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/data.js"></script>
 </head>
-<body>
+<body>O primeiro gráfico demonstra quais os gêneros de filmes que mais conseguiram Oscars entre os anos de 2007 à 2011. O gráfico mostra apenas os gêneros que conseguiram pelo menos um Oscar e exibe o resultado em ordem decrescente, focando assim nos gêneros que mais tiveram Oscars.
+	O segundo gráfico mostra os cinco maiores estúdios líderes que mais conquistaram Oscars nos anos de 2007 à 2011. Com o gráfico é possível ver como foi o desempenho de cada estúdio ao logo dos anos. 
+	Para execução dessa atividade obtive algumas dificuldades e limitações, tais como: busquei simplificar os gráficos na ferramenta tableau(usando apenas barras e linhas),  pois o meu conhecimento com o Highcharts ainda é limitado, a seleção dos dados do banco é bem mais manual do que no tableau, uma vez que no tableau é bem mais simple e intuitivo. Para melhorar a visualização eu gostaria de ter adicionado os rótulos fixos demonstrando assim como nos gráficos do tableau o número de oscars em cada gráfico, isso foi o que eu gostaria de ter feito mas por enquanto ainda é uma limitação.
+	
+	
 	<script language="JavaScript">
                     $(document).ready(function() {
             
@@ -21,12 +25,12 @@
                         csv: csv
                     },
                     title: {
-                        text: 'Number of Oscars per genre(2007-2011)'
+                        text: 'Número de Oscars por gênero(2007-2011)'
                         
                     },
                     yAxis: {
                         title: {
-                            text: 'Number of Oscars'
+                            text: 'Número de Oscars'
                         }
                     }
                 });
@@ -41,12 +45,12 @@
                         csv: csv
                     },
                     title: {
-                        text: 'Number of Oscars of the five leading studios(2007-2011) '
+                        text: 'Número de Oscars dos 5 estúdios líderes(2007-2011) '
                         
                     },
                     yAxis: {
                         title: {
-                            text: 'Number of Oscars'
+                            text: 'Número de Oscars'
                         }
                     }
                 });
