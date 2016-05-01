@@ -28,13 +28,13 @@
             .style("width", function (d) {
                 return (d.Worldwide_Gross_M) + "px";
             })
-            .style('background', 'green')
+            .style('background', 'black')
             .select("span")
                 .text(function (d) {
                     return d.Film;
                 });
          if(comparator)
-            d3.select("body")
+            d3.select("id")
                 .selectAll("div.h-bar") 
                 .sort(comparator);
     }
@@ -62,7 +62,7 @@
                     return d.Film;
                 });
          if(comparator)
-            d3.select("body")
+            d3.select("id")
                 .selectAll("div.h-bar") 
                 .sort(comparator);
     }
@@ -91,7 +91,7 @@ function render2(id, data, comparator) {
                     return d.Film;
                 });
          if(comparator)
-            d3.select("body")
+            d3.select("id")
                 .selectAll("div.h-bar") 
                 .sort(comparator);
     }
