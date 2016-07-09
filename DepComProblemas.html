@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html>
+    <head>    
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />              
+	<title> Gráfico de Barras </title>        
+        <!-- Inclusões das bibliotecas JavaScript para o Highcharts -->         
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="http://code.highcharts.com/modules/drilldown.js"></script>
+    <!--script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.16/angular.js" data-semver="1.2.16"></script-->
+    <script src="http://cdn.staticfile.org/angular.js/1.2.6/angular.js"></script>
+    <script src="highcharts-ng.js"></script>
+    <script src="script.js"></script>
+    </head>     
+    <body>  
+	<script> 
+   $(function () {
+    // Create the chart
+    $('#container3').highcharts({
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: 'Situação jurídica dos Deputados'
+        },
+        subtitle: {
+            text: 'Clique na fatia para saber a distribição dos votos'
+        },
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}: {point.y:.1f}%'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> do total<br/>'
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'Deputados com pendencias jurídicas',
+                y: 59.06,
+                drilldown: 'Deputados com pendencias jurídicas'
+            }, {
+                name: 'Deputados sem pendencias jurídicas',
+                y: 40.94,
+                drilldown: 'Deputados sem pendencias jurídicas'
+            }]
+        }],
+        drilldown: {
+            series: [{
+                name: 'Deputados com pendencias jurídicas',
+                id: 'Deputados com pendencias jurídicas',
+                data: [
+                    ['Votos contabilizados como "Sim"', 70.96],
+                    ['Votos contabilizados como "Não"', 29.04]
+                      
+                ]
+            }, {
+                name: 'Deputados sem pendencias jurídicas',
+                id: 'Deputados sem pendencias jurídicas',
+                data: [
+                     ['Votos contabilizados como "Sim"', 72.38],
+                    ['Votos contabilizados como "Não"', 27.62]
+                   
+                ]
+           
+            }]
+        }
+    });
+});
+	</script>
+
+<div id="container3" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<highchart config="chartConfig" class="span10"></highchart>
+    </body> 
+</html>
