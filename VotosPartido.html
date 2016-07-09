@@ -1,0 +1,80 @@
+<!DOCTYPE html> 
+<html>
+    <head>    
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />              
+	<title> Gráfico de Barras </title>        
+        <!-- Inclusões das bibliotecas JavaScript para o Highcharts -->         
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>         <script src="http://code.highcharts.com/highcharts.js"></script> 
+    </head>     
+    <body>  
+	<script>  $(function () {
+    		$('#container').highcharts({
+       		    chart: {
+                        type: 'column'
+                },
+                title: {
+                    text: 'Votos por partido'
+        },
+        xAxis: {
+            categories: ['DEM', 'PCdoB', 'PDT', 'PEN', 'PHS', 'PMB', 'PMDB', 'PP', 'PPS', 'PR', 'PRB', 'PROS', 'PSB', 'PSC', 'PSD', 'PSDB', 'PSL', 'PSOL', 'PT', 'PTB', 'PTdoB', 'PTN', 'PV', 'REDE', 'SD']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Número de Votos'
+            },
+            stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        legend: {
+            align: 'right',
+            x: -30,
+            verticalAlign: 'top',
+            y: 25,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+            borderColor: '#CCC',
+            borderWidth: 1,
+            shadow: false
+        },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                    style: {
+                        textShadow: '0 0 3px black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Sim',
+            data: [28, 0, 6, 1, 6, 1, 59, 38, 8, 26, 22, 4, 29, 10, 29, 52, 2, 0, 0, 14, 2, 8, 6, 2, 14]
+        }, {
+            name: 'Não',
+            data: [0, 10, 12, 1, 1, 0, 7, 4, 0, 10, 0, 2, 3, 0, 8, 0, 0, 6, 60, 6, 1, 4, 0, 2, 0]
+        }, {
+            name: 'Ausente',
+            data: [0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }, {
+            name: 'Abstenção',
+            data: [0, 0, 1, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }]
+    });
+});
+		</script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </body> 
+</html>
