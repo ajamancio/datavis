@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html>
+    <head>    
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />              
+	<title> Gráfico de Barras </title>        
+        <!-- Inclusões das bibliotecas JavaScript para o Highcharts -->         
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>         
+	<script src="http://code.highcharts.com/highcharts.js"></script> 
+    </head>     
+    <body>  
+	<script>  $(function () {
+    $('#container1').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Deputados com questionamento jurídico'
+        },
+        xAxis: {
+            categories: ['Votaram contra o Governo', 'Votaram a favor do Governo', 'Ausentes e Abstenções']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Total de Deputados'
+            }
+        },
+	
+	
+        legend: {
+            reversed: true
+        },
+	tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y}<br/>Total: 		    {point.stackTotal}'
+        },
+        plotOptions: {
+            series: {
+                stacking: 'normal'
+            }
+        },
+        series: [{
+            name: 'Deputados com problemas Judiciais',
+            data: [215,79,5]
+        }, {
+            name: 'Deputados sem problemas Judiciais',
+            data: [152,58,4]
+        }]
+    });
+});
+	</script>
+
+<div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </body> 
+</html>
