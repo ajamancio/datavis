@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+        <title> Gráfico de Barras </title> 
+        <!-- Inclusões das bibliotecas JavaScript para o Highcharts
+ --> 
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> 
+        <script src="http://code.highcharts.com/highcharts.js"></script>     
+    </head> 
+    <body> 
+    <script> 
+ 	$(function () {  
+       $('#container').highcharts({
+       		chart: { 
+						type: 'column' 
+				  }, 
+			title: { 
+						 text: 'movies' 
+			}, 
+			xAxis: { 
+						 categories: ['Worldwide', 'Domestic', 'Brazil','Argentina'] 
+			}, 
+			yAxis: { 
+						 title: { 
+								text: 'Foreign' 
+						  } 
+			}, 
+			series: [{ 
+				name: 'The Amazing Spider-Man', 
+				data: [495.900.000, 262.030.663, 30.368.653, 8.270.500] 
+				}, 
+				{ 
+					name: 'X-Men: Days of Future Past', 
+					data: [513.941.241, 233.921.534, 28.779.414, 4.850.967]
+				},
+				{
+					name:'The Matrix Reloaded',
+					data: [460.552.000,281.576.461, 9.944.364,3.940.157] 
+				},
+				{ 
+					name: 'Iron Man 3', 
+					data: [806.426.000, 409.013.994, 47.874.596, 13.556.234]
+				},
+				] 
+				
+       		});
+     });
+</script>
+    <div id="container" style="width:100%; height:400px;"></div>
+    </body> 
+</html>
